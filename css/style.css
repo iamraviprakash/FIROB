@@ -1,0 +1,56 @@
+body{
+
+	font-family: 'Comfortaa', cursive;
+}
+
+.container{
+    padding: 0px;
+    z-index: 0;
+
+}
+.row{
+    margin: 0px;
+}
+#bottom
+{
+	width: 100%;
+	position: relative;
+	height: 250px;
+}
+#triangle1-bottomRight{
+	position: absolute;
+	top:50px;
+	right: 0px;
+    width: 0;
+    height: 0;
+    border-bottom: 200px solid #537d7c;
+    border-left: 65vw solid transparent;
+}
+#triangle2-bottomRight{
+	position: absolute;
+	top:20px;
+	right: 5%;
+    width: 0;
+    height: 0;
+    border-bottom: 230px solid #81b7b5;
+    border-left: 65vw solid transparent;
+}
+#bottom-text{
+    position: absolute;
+    top:200px;
+    text-align: right;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    right: 5%;
+}
+#bottom-bar{
+    position: absolute;
+    height: 70px;
+    width: 100%;
+    top:180px;
+    background: #537d7c;
+    font-size: 1.2em;
+    font-weight: bold;
+    right: 5%;
+}
