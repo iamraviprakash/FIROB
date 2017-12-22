@@ -116,7 +116,7 @@
     <script>
         function adjustHeight() {
             var h = document.getElementsByTagName('body')[0].clientHeight;
-            var h1= document.getElementById("segment-1").clientHeight+document.getElementById("segment-2").clientHeight;
+            var h1= document.getElementById("segment-1").clientHeight;
             if(h>h1)
             {
                 document.getElementById('adjust').style.height=h-h1-100+"px";
