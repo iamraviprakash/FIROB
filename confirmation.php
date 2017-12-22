@@ -27,64 +27,38 @@
 	<link href="css/style.css" rel="stylesheet">
 
 	<style>
-		.container{
-		    padding: 0px;
-		    z-index: 0;
-		}
-		.row{
-		    margin: 0px;
-		    padding: 0px;
-		}
-		#confirmation-topLeft{
-			width: 100%;
-			position: relative;
-			height: 200px;
-		}
-		#confirmation-triangle1-topLeft{
-			position: absolute;
-			left: 0px;
-            width: 0;
-            height: 0;
-            border-top: 130px solid #537d7c;
-            border-right: 90vw solid transparent;
+    /* updated */
+        
+        #heading{
+            background:#689d9b;
         }
-        #confirmation-triangle2-topLeft{
-			position: absolute;
-			left: 30px;
-            width: 0;
-            height: 0;
-            border-top: 150px solid #81b7b5;
-            border-right: 90vw solid transparent;
-        }
-		#confirmation-topLeft-text{
-        	position: absolute;
-        	top:50px;
+        #heading #text{
         	color: white;
         	font-size: 1.8em;
         	font-weight: bold;
-        	left: 16px;
-
+            width: 100%;
+			height: 50px;
+            padding:5px 10px 5px 10px;
         }
-       
-       #confirmation-middle{
-       	text-align: center;
-       	width: 100%;
-       	min-height: 250px;
-       }
-       #confirmation-middle-text{
-       	color: grey;
-       	font-size: 2.5em;
-       	margin-top: 30px;
-       }
-       #confirmation-middle-image{
-
-       }
-       #confirmation-middle-submit-button-group{
-       		padding-bottom: 30px;
-       		padding-top: 120px;
-       }
-       .confirmation-middle-submit-button{
-       		width:220px;
+        #segment-1 .col-md-12{
+            padding: 10px;
+       	    text-align: center;
+        }
+        #segment-1 #text{
+            color: grey;
+            font-size: 2.5em;
+            margin-top: 30px;
+        }
+        #segment-1 {
+       		padding: 30px;
+        }
+        #segment-1 #submit-button-group{
+            text-align: center;
+            padding: 10px;
+        }
+        #segment-1 #submit-button-group button{
+            margin: 10px;
+            width:220px;
 			height: 45px;
 			color: white;
 			font-size: 1.2em;
@@ -94,9 +68,18 @@
 			box-shadow: 1.5px 1.5px 1.5px 1.5px #81b7b5;
        }
 	</style>
-
+    <script>
+        function adjustHeight() {
+            var h = document.getElementsByTagName('body')[0].clientHeight;
+            var h1= document.getElementById("segment-1").clientHeight;
+            if(h>h1)
+            {
+                document.getElementById('adjust').style.height=h-h1-100+"px";
+            }
+        }
+    </script>
 </head>
-<body>
+<body onresize="adjustHeight()" onload="adjustHeight()">
 <?php
 	$user_id=$_POST['id'];
 	$user_name=$_POST['name'];
@@ -129,17 +112,15 @@
 	$conn->commit();*/
 ?>
 	<!-- top left corner part -->
-	<div class="container" id="confirmation-topLeft">
+	<div class="container-fluid" id="heading">
 		<div class="row">
 			<div class="col-md-12">
-				<div id="confirmation-triangle1-topLeft"></div>
-				<div id="confirmation-triangle2-topLeft"></div>
-				<a href="index.php"><div id="confirmation-topLeft-text">FIRO-B | Confirmation</div></a>
+				<div id="text">FIRO-B | Confirmation</div>
 			</div>
 		</div>
 	</div>
 	<!--middle -->
-	<div class="container" id="confirmation-middle">	
+	<div class="container-fluid" id="segment-1">	
 		<div class="row">
 			<div class="col-md-12">
 
@@ -283,9 +264,9 @@
 							$conn->autocommit(TRUE);
 				?>
 				
-							<img src="img/tick.png" width="80" id="confirmation-middle-image">
+							<img src="img/tick.png" width="80" id="segment-1-image">
 							<br>
-							<div id="confirmation-middle-text">Well done! You've successfully submitted the data.</div>
+							<div id="text">Well done! You've successfully submitted the data.</div>
 				
 				<?php
 						}
@@ -296,9 +277,9 @@
 							$validity=false;		
 				?>
 
-							<img src="img/sad.png" width="80" id="confirmation-middle-image">
+							<img src="img/sad.png" width="80" id="segment-1-image">
 							<br>
-							<div id="confirmation-middle-text">Oh no! Unfortunately your attempt was unsuccessful.</div>
+							<div id="text">Oh no! Unfortunately your attempt was unsuccessful.</div>
 				
 				<?php
 						}
@@ -313,52 +294,38 @@
 				?>
 			</div>
 		</div>
-		<div class="row" id="confirmation-middle-submit-button-group">
+        <br>
+		<div class="row" id="submit-button-group">
 			<?php
 				if($validity){
 			?>
+					<a href="index.php"><button>HOME</button></a>
 
-				<div class="col-md-4" style="text-align:right;">
-					<a href="index.php"><button class="confirmation-middle-submit-button" >HOME</button></a>
-				</div>
-				<div class="col-md-4">
-					<a href="dataEntry.php"><button class="confirmation-middle-submit-button">NEXT ENTRY</button></a>
-				</div>
-				<div class="col-md-4" style="text-align:left;">
+					<a href="dataEntry.php"><button>NEXT ENTRY</button></a>
+				
 					<?php
-						echo "<a href='results.php?id=".$user_id."'><button class='confirmation-middle-submit-button' >SEE RESULT</button></a>";
+						echo "<a href='results.php?id=".$user_id."'><button>SEE RESULT</button></a>";
 					?>
-				</div>
 
 			<?php
 				}
 				else{
 			?>
-
-				<div class="col-md-6" style="text-align:right;">
-					<a href="index.php"><button class="confirmation-middle-submit-button" >HOME</button></a>
-				</div>
-				<div class="col-md-6" style="text-align:left;">
-					<a href="dataEntry.php"><button class="confirmation-middle-submit-button">RETRY</button></a>
-				</div>
+					<a href="index.php"><button>HOME</button></a>
+            
+					<a href="dataEntry.php"><button>RETRY</button></a>
 
 			<?php
 				}
 			?>
 		</div>
 	</div>
+    
+    <div id="adjust"></div>
 	<!--bottom -->
-		<div class="container" id="bottom">
-			<div class="row">
-				<div class="col-md-12">
-					<div id="triangle1-bottomRight"></div>
-					<div id="bottom-bar"></div>
-					<div id="triangle2-bottomRight"></div>
-					<div id="bottom-text">Designed and developed by Ravi Prakash</div>
-				</div>
-			</div>
+		<div class="container-fluid" id="bottom">
+				<div id="bottom-text">Designed and developed by Ravi Prakash</div>
 		</div>
-
 
 	</body>
 </html>

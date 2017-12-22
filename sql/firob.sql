@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.19, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.20, for Linux (x86_64)
 --
 -- Host: localhost    Database: firob
 -- ------------------------------------------------------
--- Server version	5.7.19-0ubuntu0.16.04.1
+-- Server version	5.7.20-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -59,7 +59,7 @@ CREATE TABLE `results` (
   PRIMARY KEY (`result_id`),
   KEY `fk_results_users` (`user_id`),
   CONSTRAINT `fk_results_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,7 +68,7 @@ CREATE TABLE `results` (
 
 LOCK TABLES `results` WRITE;
 /*!40000 ALTER TABLE `results` DISABLE KEYS */;
-INSERT INTO `results` VALUES (3,'c',5,9,7,9,5,9),(4,'a',5,9,7,9,5,9),(5,'b',5,9,7,9,5,9),(6,'d',5,9,7,9,5,9),(7,'e',5,9,7,9,5,9);
+INSERT INTO `results` VALUES (13,'b',9,9,7,9,5,9),(14,'c',9,9,7,9,5,9),(15,'k',4,4,4,1,3,6),(16,'k',4,4,4,1,3,6),(17,'k',4,4,4,1,3,6),(18,'k',4,4,4,1,3,6),(19,'k',4,4,4,1,3,6),(20,'k',4,4,4,1,3,6),(21,'k',4,4,4,1,3,6),(22,'k',4,4,4,1,3,6),(23,'k',4,4,4,1,3,6),(24,'k',4,4,4,1,3,6),(25,'k',4,4,4,1,3,6),(26,'k',4,4,4,1,3,6),(27,'k',4,4,4,1,3,6),(28,'k',4,4,4,1,3,6),(29,'k',4,4,4,1,3,6),(30,'k',4,4,4,1,3,6),(31,'k',4,4,4,1,3,6),(32,'k',4,4,4,1,3,6),(33,'k',4,4,4,1,3,6),(34,'k',4,4,4,1,3,6),(35,'k',4,4,4,1,3,6),(36,'k',4,4,4,1,3,6),(37,'k',4,4,4,1,3,6),(38,'k',4,4,4,1,3,6),(39,'k',4,4,4,1,3,6),(40,'k',4,4,4,1,3,6),(41,'k',4,4,4,1,3,6),(42,'k',4,4,4,1,3,6),(43,'k',4,4,4,1,3,6),(44,'k',4,4,4,1,3,6),(45,'k',4,4,4,1,3,6),(46,'k',4,4,4,1,3,6),(47,'k',4,4,4,1,3,6),(48,'k',4,4,4,1,3,6),(49,'k',4,4,4,1,3,6),(50,'k',4,4,4,1,3,6),(51,'k',4,4,4,1,3,6),(52,'p',4,4,3,3,3,4);
 /*!40000 ALTER TABLE `results` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,7 +93,7 @@ CREATE TABLE `userAnswer` (
 
 LOCK TABLES `userAnswer` WRITE;
 /*!40000 ALTER TABLE `userAnswer` DISABLE KEYS */;
-INSERT INTO `userAnswer` VALUES ('a','1,1,5,1,1,1,4,1,1,1,3,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1'),('b','1,1,5,1,1,1,4,1,1,1,3,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1'),('c','1,1,5,1,1,1,4,1,1,1,3,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1'),('d','1,1,5,1,1,1,4,1,1,1,3,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1'),('e','1,1,5,1,1,1,4,1,1,1,3,1,1,1,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1');
+INSERT INTO `userAnswer` VALUES ('b','1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1'),('c','1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1'),('k','1,1,1,1,1,1,2,2,3,3,3,3,3,3,3,4,4,4,4,4,4,5,5,5,5,5,5,5,6,6,6,6,6,6,6,2,2,2,2,2,2,2,3,3,3,3,3,3,5,5,5,5,1,1'),('p','2,2,2,2,2,2,3,3,3,3,3,3,4,4,4,4,4,4,5,5,5,5,5,5,1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3,3,3,4,4,4,4,4,4,5,5,5,5,5,5');
 /*!40000 ALTER TABLE `userAnswer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -109,7 +109,7 @@ CREATE TABLE `users` (
   `user_name` varchar(50) NOT NULL,
   `user_org` varchar(150) NOT NULL,
   `entryDate` date NOT NULL,
-  PRIMARY KEY (`user_id`)
+  PRIMARY KEY (`user_id`,`user_org`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -119,7 +119,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('a','a','a','2017-10-13'),('b','a','a','2017-10-13'),('c','a','a','2017-10-13'),('d','a','a','2017-10-13'),('e','k','a','2017-10-13');
+INSERT INTO `users` VALUES ('b','a','a','2017-10-21'),('c','a','a','2017-10-21'),('k','p','d','2017-12-10'),('p','p','p','2017-12-09');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -132,4 +132,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-10-19  9:11:49
+-- Dump completed on 2017-12-22 14:16:00
