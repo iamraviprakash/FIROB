@@ -50,6 +50,7 @@ DROP TABLE IF EXISTS `results`;
 CREATE TABLE `results` (
   `result_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` varchar(20) NOT NULL,
+  `user_organisation` varchar(200) NOT NULL,
   `E_I` int(11) NOT NULL,
   `W_C` int(11) NOT NULL,
   `E_A` int(11) NOT NULL,
@@ -57,9 +58,9 @@ CREATE TABLE `results` (
   `W_A` int(11) NOT NULL,
   `E_C` int(11) NOT NULL,
   PRIMARY KEY (`result_id`),
-  KEY `fk_results_users` (`user_id`),
-  CONSTRAINT `fk_results_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
+  KEY `fk_results_users` (`user_id`,`user_organisation`),
+  CONSTRAINT `fk_results_users` FOREIGN KEY (`user_id`, `user_organisation`) REFERENCES `users` (`id`, `organisation`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,7 +69,7 @@ CREATE TABLE `results` (
 
 LOCK TABLES `results` WRITE;
 /*!40000 ALTER TABLE `results` DISABLE KEYS */;
-INSERT INTO `results` VALUES (13,'b',9,9,7,9,5,9),(14,'c',9,9,7,9,5,9),(15,'k',4,4,4,1,3,6),(16,'k',4,4,4,1,3,6),(17,'k',4,4,4,1,3,6),(18,'k',4,4,4,1,3,6),(19,'k',4,4,4,1,3,6),(20,'k',4,4,4,1,3,6),(21,'k',4,4,4,1,3,6),(22,'k',4,4,4,1,3,6),(23,'k',4,4,4,1,3,6),(24,'k',4,4,4,1,3,6),(25,'k',4,4,4,1,3,6),(26,'k',4,4,4,1,3,6),(27,'k',4,4,4,1,3,6),(28,'k',4,4,4,1,3,6),(29,'k',4,4,4,1,3,6),(30,'k',4,4,4,1,3,6),(31,'k',4,4,4,1,3,6),(32,'k',4,4,4,1,3,6),(33,'k',4,4,4,1,3,6),(34,'k',4,4,4,1,3,6),(35,'k',4,4,4,1,3,6),(36,'k',4,4,4,1,3,6),(37,'k',4,4,4,1,3,6),(38,'k',4,4,4,1,3,6),(39,'k',4,4,4,1,3,6),(40,'k',4,4,4,1,3,6),(41,'k',4,4,4,1,3,6),(42,'k',4,4,4,1,3,6),(43,'k',4,4,4,1,3,6),(44,'k',4,4,4,1,3,6),(45,'k',4,4,4,1,3,6),(46,'k',4,4,4,1,3,6),(47,'k',4,4,4,1,3,6),(48,'k',4,4,4,1,3,6),(49,'k',4,4,4,1,3,6),(50,'k',4,4,4,1,3,6),(51,'k',4,4,4,1,3,6),(52,'p',4,4,3,3,3,4);
+INSERT INTO `results` VALUES (55,'a','a',9,9,7,9,5,9),(57,'a','b',6,9,2,1,3,4);
 /*!40000 ALTER TABLE `results` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -81,9 +82,10 @@ DROP TABLE IF EXISTS `userAnswer`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `userAnswer` (
   `user_id` varchar(20) NOT NULL,
+  `user_organisation` varchar(200) NOT NULL,
   `user_answer` varchar(200) NOT NULL,
-  PRIMARY KEY (`user_id`),
-  CONSTRAINT `fk_userAnswer_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE
+  KEY `fk_userAnswer_users` (`user_id`,`user_organisation`),
+  CONSTRAINT `fk_userAnswer_users` FOREIGN KEY (`user_id`, `user_organisation`) REFERENCES `users` (`id`, `organisation`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -93,7 +95,7 @@ CREATE TABLE `userAnswer` (
 
 LOCK TABLES `userAnswer` WRITE;
 /*!40000 ALTER TABLE `userAnswer` DISABLE KEYS */;
-INSERT INTO `userAnswer` VALUES ('b','1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1'),('c','1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1'),('k','1,1,1,1,1,1,2,2,3,3,3,3,3,3,3,4,4,4,4,4,4,5,5,5,5,5,5,5,6,6,6,6,6,6,6,2,2,2,2,2,2,2,3,3,3,3,3,3,5,5,5,5,1,1'),('p','2,2,2,2,2,2,3,3,3,3,3,3,4,4,4,4,4,4,5,5,5,5,5,5,1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3,3,3,4,4,4,4,4,4,5,5,5,5,5,5');
+INSERT INTO `userAnswer` VALUES ('a','a','1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1'),('a','b','2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,5,5,5,5,5,5,5,6,6,6,6,6,6,1,1,1,1,1,1');
 /*!40000 ALTER TABLE `userAnswer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -105,11 +107,11 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
-  `user_id` varchar(20) NOT NULL,
-  `user_name` varchar(50) NOT NULL,
-  `user_org` varchar(150) NOT NULL,
+  `id` varchar(20) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `organisation` varchar(150) NOT NULL,
   `entryDate` date NOT NULL,
-  PRIMARY KEY (`user_id`,`user_org`)
+  PRIMARY KEY (`id`,`organisation`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -119,7 +121,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('b','a','a','2017-10-21'),('c','a','a','2017-10-21'),('k','p','d','2017-12-10'),('p','p','p','2017-12-09');
+INSERT INTO `users` VALUES ('a','a','a','2017-12-23'),('a','b','b','2017-12-23');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -132,4 +134,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-22 14:16:00
+-- Dump completed on 2017-12-23 10:58:49

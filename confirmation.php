@@ -95,12 +95,12 @@
 			$flag=true;
 			$conn->autocommit(FALSE);
 			//$conn->begin_transaction(MYSQLI_TRANS_START_READ_WRITE);
-			$check_result=$conn->query("Insert into users(user_id,user_name,user_org,entryDate) values('$user_id','$user_name','$user_org','$entryDate')");
+			$check_result=$conn->query("Insert into users(id,name,organisation,entryDate) values('$user_id','$user_name','$user_org','$entryDate')");
 			if(!$check_result)
 			{
 				$flag=false;
 			}
-			$check_result=$conn->query("Insert into userAnswer(user_id,user_answer) values('$user_id','$user_answer')");
+			$check_result=$conn->query("Insert into userAnswer(user_id,user_organisation,user_answer) values('$user_id','$user_org','$user_answer')");
 			if(!$check_result)
 			{
 				$flag=false;
@@ -252,7 +252,7 @@
 							}
 						}
 
-						$check_result=$conn->query("Insert into results(user_id,E_I,W_C,E_A,W_I,W_A,E_C) values('$user_id',$E_I,$W_C,$E_A,$W_I,$W_A,$E_C)");
+						$check_result=$conn->query("Insert into results(user_id,user_organisation,E_I,W_C,E_A,W_I,W_A,E_C) values('$user_id','$user_org',$E_I,$W_C,$E_A,$W_I,$W_A,$E_C)");
 						if(!$check_result)
 						{
 							$flag=false;
@@ -304,7 +304,7 @@
 					<a href="dataEntry.php"><button>NEXT ENTRY</button></a>
 				
 					<?php
-						echo "<a href='results.php?id=".$user_id."'><button>SEE RESULT</button></a>";
+						echo "<a href='results.php?id=".$user_id."&org=".$user_org."'><button>SEE RESULT</button></a>";
 					?>
 
 			<?php

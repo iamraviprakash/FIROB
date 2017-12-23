@@ -1,5 +1,5 @@
 <?php
-	if(isset($_GET['id']))
+	if(isset($_GET['id']) && isset($_GET['org']))
 	{
 		$servername = "localhost";
 		$username = "root";
@@ -95,11 +95,11 @@
 <body onresize="adjustHeight()" onload="adjustHeight()">
 <?php
 	$user_id=$_GET['id'];
-	
-	$result=$conn->query("select * from results where user_id='$user_id'");
+	$user_org=$_GET['org'];
+	$result=$conn->query("select * from results where user_id='$user_id' and user_organisation='$user_org'");
 	$row=$result->fetch_assoc();
 
-	$result1=$conn->query("select * from users where user_id='$user_id'");
+	$result1=$conn->query("select * from users where id='$user_id' and organisation='$user_org'");
 	$row1=$result1->fetch_assoc();
 ?>
 
@@ -123,9 +123,9 @@
 				<ul type="none">
                     <li></li>
                     <br>
-					<?php echo "<li>Id No./Roll No. : ".$row1['user_id']."</li>"; ?>
-					<?php echo "<li>Name : ".$row1['user_name']."</li>"; ?>
-					<?php echo "<li>Organisation/Institute : ".$row1['user_org']."</li>"; ?>
+					<?php echo "<li>Id No./Roll No. : ".$row1['id']."</li>"; ?>
+					<?php echo "<li>Name : ".$row1['name']."</li>"; ?>
+					<?php echo "<li>Organisation/Institute : ".$row1['organisation']."</li>"; ?>
 					<?php echo "<li>Date : ".$row1['entryDate']."</li>"; ?>
 				</ul>
 			</div>

@@ -146,7 +146,7 @@
 			$queryString=$_GET['q'];
 			$queryString=str_replace(" ","|",$queryString);
 
-			$result=$conn->query("select * from users where user_id regexp '".$queryString."' or user_name regexp '".$queryString."' or user_org regexp '".$queryString."'");
+			$result=$conn->query("select * from users where id regexp '".$queryString."' or name regexp '".$queryString."' or organisation regexp '".$queryString."'");
 ?>
 <!-- heading -->
 	<div class="container-fluid" id="heading">
@@ -198,19 +198,19 @@
 					<div class="row result-row" >
                         <div class="col-md-1"><input type="checkbox" class="selectOne"></div>
 						<div class="col-md-2">
-							<?php echo $row['user_id']; ?>
+							<?php echo $row['id']; ?>
 						</div>
                         <div class="col-md-2">
-							<?php echo $row['user_name']; ?>
+							<?php echo $row['name']; ?>
 						</div>
                         <div class="col-md-2">
-							<?php echo $row['user_org']; ?>
+							<?php echo $row['organisation']; ?>
 						</div>
                         <div class="col-md-2">
 							<?php echo $row['entryDate']; ?>
 						</div>
                         <div class="col-md-3">
-							<?php echo '<a href="results.php?id='.$row['user_id'].'"><i class="material-icons">remove_red_eye</i></a>';?> 
+							<?php echo '<a href="results.php?id='.$row['id'].'&org='.$row['organisation'].'"><i class="material-icons">remove_red_eye</i></a>';?> 
                             
                             <?php echo '<a href="results.php?id='.$row['user_id'].'"><i class="material-icons">mode_edit</i></a>';?>
                             
