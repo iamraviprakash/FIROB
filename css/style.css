@@ -1,21 +1,18 @@
 body{
 
 	/*font-family: 'Comfortaa', cursive;*/
-    font-family: 'Open Sans Condensed', sans-serif;
+    font-family: Open Sans,Helvetica,Neue,Helvetica,Arial,sans-serif;
 }
 #bottom
 {
     padding: 0px;
-    
-    
 }
 #bottom div{
     color: white;
     background: #689d9b;
     text-align: center;
     width: 100%;
-    height: 50px;
-    padding-top: 10px;
-    font-size: 1.2em;
-    font-weight: bold;
+    height: 100px;
+    padding-top: 30px;
+    font-size: 1em;
 }

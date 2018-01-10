@@ -16,7 +16,7 @@
        #segment-1 .row{
        	text-align: left;
        	font-size: 1.5em;
-       	margin-bottom: 20px;
+        padding: 20px;
        }
        #segment-1 input{
        	width:50px;
@@ -30,32 +30,34 @@
        }
        
         /* updated */
-        #heading{
+        
+         #heading{
             background:#689d9b;
+            height: 65px;
+            box-shadow: 2px 2px 2px lightgrey;
         }
         #heading #text{
         	color: white;
-        	font-size: 1.8em;
-        	font-weight: bold;
-            width: 100%;
-			height: 50px;
-            padding:5px 10px 5px 10px;
+        	font-size: 1.3em;
+            margin: 10px;
+            margin-top:20px;
         }
-        #navigation{
-            background: #F8F8F8; 
-            margin-top: 30px;
+        #heading .col-md-1 button{
+            font-size: 1.1em;
+            margin: 5px;
+            margin-top: 20px;
+            background: none;
+            border:0px;
+            color: white;
         }
-        #navigation .col-md-12{
+        #heading .col-md-1{
             text-align: center;
-            padding: 10px;
         }
-        #navigation .material-icons{
-            color: gray;
-            font-size: 30px;
+        
+        #heading+form{
+            margin-top: 50px;
         }
-        #navigation+form{
-            margin-top: 30px;
-        }
+        
         #segment-1 #userDetails div{
             text-align: center;
         }
@@ -71,13 +73,13 @@
        		width:220px;
 			height: 45px;
 			color: white;
-			font-size: 1.2em;
+			font-size: 1em;
 			border-width: 0px;
 			margin-top: 80px;
 			margin-bottom: 30px;
 			background: #689d9b; 
 			border-radius: 3px;
-			box-shadow: 1.5px 1.5px 1.5px 1.5px #81b7b5;
+			box-shadow: 0px 10px 6px -6px  #b3b3b3;
        }
 	</style>
 	<script>
@@ -192,18 +194,14 @@
 		<!-- top left corner part -->
 	<div class="container-fluid" id="heading">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-11">
 				<div id="text">FIRO-B | Data Entry</div>
 			</div>
+            <div class="col-md-1">
+                <a href="index.php"><button>Home</button></a>
+            </div>
 		</div>
 	</div>
-    <div class="container-fluid" id="navigation">
-        <div class="row" >
-            <div class="col-md-12">
-                <a href="index.php"><i class="material-icons">home</i></a> 
-            </div>
-        </div>
-    </div>
 	<!--- Questions -->
 	<form id="myform" action="confirmation.php" method="post" name="dataForm">
 		<div class="container-fluid" id="segment-1">

@@ -6,8 +6,6 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 
 	<style>
@@ -25,7 +23,7 @@
 		#heading-text{
             padding: 50px 0 50px 0;
 			color: white;
-			font-size: 5em;
+			font-size: 4em;
 			text-align: center;
 		}
         #segment-1{
@@ -38,7 +36,7 @@
             padding: 20px;
         }
         #segment-1 form{
-            font-size: 1.4em;
+            font-size: 1.2em;
 		}
         #segment-1 form input[type=search]{
             border-radius: 5px;
@@ -49,7 +47,7 @@
 			width:65%;
             min-width: 250px;
             margin: 10px;
-            padding: 5px;
+            padding: 10px;
         }
         #segment-1 form input[type=search]::placeholder{
             color: white;
@@ -71,7 +69,7 @@
         }
         #segment-2 .col-md-12{
              padding:26px 0 26px 0;
-             font-size: 2em;
+             font-size: 1.5em;
 			 text-align: center;
         }
         #segment-2 .col-md-12 div{
@@ -87,7 +85,7 @@
 			margin-bottom: 30px;
 			background: #689d9b;
 			border-radius: 3px;
-			box-shadow: 1.5px 1.5px 1.5px 1.5px #81b7b5;
+			box-shadow: 0px 10px 6px -6px  #b3b3b3;
 
         }
 	</style>
@@ -98,7 +96,7 @@
             
             if(h>h1)
             {
-                document.getElementById('adjust').style.height=h-h1-50+"px";
+                document.getElementById('adjust').style.height=h-h1-100+"px";
             }
         }
     </script>

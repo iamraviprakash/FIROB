@@ -30,52 +30,66 @@
 		
       
         /* updated */
-        
         #heading{
             background:#689d9b;
+            height: 65px;
+            box-shadow: 2px 2px 2px lightgrey;
         }
         #heading #text{
         	color: white;
-        	font-size: 1.8em;
-        	font-weight: bold;
-            width: 100%;
-			height: 50px;
-            padding:5px 10px 5px 10px;
+        	font-size: 1.3em;
+            margin: 10px;
+            margin-top:20px;
         }
-        #segment-1{
-            margin-top: 50px;
+        #heading .col-md-4 button{
+            font-size: 1.1em;
+            margin: 5px;
+            margin-top: 20px;
+            background: none;
+            border:0px;
+            color: white;
         }
-        #navigation{
-            background: #F8F8F8; 
-        }
-        #navigation div{
+        #heading .col-md-4{
             text-align: center;
-            padding: 10px;
         }
-        #navigation .material-icons{
-            color: gray;
-            font-size: 30px;
-            margin-left: 20px;
+        
+        
+        #segment-1 .row{
+            padding-top: 30px;
+            padding-bottom: 30px;
         }
-        #navigation+div{
-            margin-top: 50px;
-        }
+       
         #segment-1 #userDetails{
-            font-size: 1.5em;
+            font-size: 1.3em;
         	font-weight: bold;
-        	padding: 20px;
+        	padding: 50px;
+            text-align: center;
         }
-        li{
-        	margin-top: 10px;
+        #userDetails table{
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            background: #eeeeee;
+            border-radius: 5px;
         }
-        table{
-            width: 100%;
+        #userDetails td{
+        	min-width: 20px;
+        	max-height: 20px;
+            font-size: 1.1em;
+            padding: 10px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        
+        #userResult table{
+            width: 50%;
             min-height: 300px;
+            margin: auto;
         }
-        td{
+        #userResult td{
         	min-width: 40px;
         	max-height: 40px;
-            font-size: 1.4em;
+            font-size: 1.1em;
             padding: 5px;
         	text-align: center;
         }
@@ -87,7 +101,7 @@
             var h1= document.getElementById("segment-1").clientHeight;
             if(h>h1)
             {
-                document.getElementById('adjust').style.height=h-h1-150+"px";
+                document.getElementById('adjust').style.height=h-h1-115+"px";
             }
         }
     </script>
@@ -106,30 +120,41 @@
 		<!-- top left corner part -->
 	<div class="container-fluid" id="heading">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-8">
 				<div id="text">FIRO-B | Result</div>
 			</div>
+            <div class="col-md-4">
+                <a href="index.php"><button>Home</button><button>Edit</button><button>Pdf</button><button>Delete</button></a>
+            </div>
 		</div>
 	</div>
     <!-- result area -->
 	<div class="container-fluid" id="segment-1">
-        <div class="row" id="navigation">
-            <div class="col-md-12">
-                <a href="index.php"><i class="material-icons">home</i></a> <i class="material-icons">mode_edit</i> <i class="material-icons">delete</i> <i class="material-icons">picture_as_pdf</i>
-            </div>
-        </div>
 		<div class="row">
-			<div class="col-md-6" id="userDetails">
-				<ul type="none">
-                    <li></li>
-                    <br>
-					<?php echo "<li>Id No./Roll No. : ".$row1['id']."</li>"; ?>
-					<?php echo "<li>Name : ".$row1['name']."</li>"; ?>
-					<?php echo "<li>Organisation/Institute : ".$row1['organisation']."</li>"; ?>
-					<?php echo "<li>Date : ".$row1['entryDate']."</li>"; ?>
-				</ul>
+			<div class="col-md-12" id="userDetails">
+                <span>User Profile</span>
+                <table>
+                    <tr>
+                        <td>ID</td>
+                        <td><?php echo $row1['id']; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td><?php echo $row1['name']; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Organisation</td>
+                        <td><?php echo $row1['organisation']; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Date</td>
+                        <td><?php echo $row1['entryDate']; ?></td>
+                    </tr>
+                </table>
 			</div>
-			<div class="col-md-6">
+        </div>
+        <div class="row">
+			<div class="col-md-12" id="userResult">
 				<table border="2">
 					<tr>
 						<td></td>
